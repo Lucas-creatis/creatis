@@ -12,6 +12,7 @@ class PipelineExecution(Resource):
         self.model = PipelineExecutionModel()
 
         self.route('GET', (), self.get)
+        self.route('GET', (':id',), self.getById)
         self.route('POST', (), self.createProcess)
         self.route('DELETE', (':id',), self.deleteProcess)
 
@@ -28,17 +29,28 @@ class PipelineExecution(Resource):
 
     @access.public
     @autoDescribeRoute(
+    Description("Get an execution by id")
+    .modelParam('id', 'The ID of the execution', model=PipelineExecutionModel,
+    destName='pipelineExecution')
+    .errorResponse('ID was invalid')
+    )
+    def getById(self, pipelineExecution):
+        return pipelineExecution
+
+    @access.public
+    @autoDescribeRoute(
     Description("Insert new execution of pipeline")
     .param('name', 'Name of execution')
     )
     def createProcess(self, params):
-        return self.model.createProcess(name=params['name'].strip())
+        name = params['name'].strip()
+        return self.model.createProcess(name)
 
     # Ajouter dans modelParam un argument level=AccessType.ADMIN
     # Pour controller les acces, etendre le model a AccessControlledModel
     @access.public
     @autoDescribeRoute(
-    Description("Insert new execution of pipeline")
+    Description("Delete an execution of pipeline")
     .modelParam('id', 'The ID of the execution to delete', model=PipelineExecutionModel,
     destName='pipelineExecution')
     )
