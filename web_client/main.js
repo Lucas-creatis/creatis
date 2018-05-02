@@ -1,5 +1,4 @@
 // Import utilities
-import { restRequest } from 'girder/rest';
 import './routes';
 
 // Import about Creatis plugin

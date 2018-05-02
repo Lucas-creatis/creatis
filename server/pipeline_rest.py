@@ -4,6 +4,7 @@ from girder.api import access
 from girder.api.describe import Description, autoDescribeRoute
 from girder.constants import AccessType
 from .models.pipeline import PipelineExecution as PipelineExecutionModel
+import json
 
 class PipelineExecution(Resource):
     def __init__(self):
@@ -40,11 +41,17 @@ class PipelineExecution(Resource):
     @access.public
     @autoDescribeRoute(
     Description("Insert new execution of pipeline")
-    .param('name', 'Name of execution')
+    .param('name', 'Name of execution', strip=True)
+    .jsonParam('fileId', 'IDs of the files that are processed', requireObject=True)
+    .param('vipExecutionId', 'ID of the exection on VIP')
+    .param('pathResultGirder', 'The path where the results are stored')
+    .param('status', 'Status of execution', default='null')
+    .param('sendMail', 'Send an email when the execution has finished', dataType='boolean', default=False)
+    .jsonParam('listFileResult', 'List of the files of result', requireObject=True)
+    .param('timestampFin', 'Date of end of pipeline', required=False)
     )
     def createProcess(self, params):
-        name = params['name'].strip()
-        return self.model.createProcess(name)
+        return self.model.createProcess(params, self.getCurrentUser())
 
     # Ajouter dans modelParam un argument level=AccessType.ADMIN
     # Pour controller les acces, etendre le model a AccessControlledModel
@@ -56,5 +63,4 @@ class PipelineExecution(Resource):
     )
     def deleteProcess(self, pipelineExecution):
         self.model.remove(pipelineExecution)
-        #logger.info(params)
         return {'message': 'Deleted execution %s.' % pipelineExecution['name']}

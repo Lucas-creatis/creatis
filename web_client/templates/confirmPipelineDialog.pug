@@ -14,8 +14,9 @@
           li.active
             a(data-toggle="tab", href="#general") General
           each param in pipeline.parameters
-            li
-              a(data-toggle="tab", href="#param1")= param.name
+            if !(param.type == "File" && !param.defaultValue) && !param.defaultValue
+              li
+                a(data-toggle="tab", href="#param1")= param.name
 
         .tab-content
           #general.tab-pane.fade.active.in
@@ -24,7 +25,7 @@
               input.form-control#name-execution(type="text", required= "true")
 
             .form-group
-              label(for="selectFolderDestination") Destination folder
+              label(for="selectFolderDestination") Result directory
               select.form-control#selectFolderDestination(required= "true")
                 option(selected='true', disabled='true') Folder
                 each folder in folders
@@ -39,6 +40,6 @@
 
       .modal-footer
         a.btn.btn-small.btn-default.btn-close-pipeline(data-dismiss="modal") Close
-        button.btn.btn-success.test(type="submit", data-dismiss="modal")
+        button.btn.btn-success.test(type="submit")
           i.icon-play
           |  Execute

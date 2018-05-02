@@ -1,0 +1,99 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'bugs', '@girder/app' ]
+2 info using npm@3.10.10
+3 info using node@v6.14.1
+4 silly fetchPackageMetaData @girder/app
+5 silly fetchNamedPackageData @girder/app
+6 silly mapToRegistry name @girder/app
+7 silly mapToRegistry scope (from package name) @girder
+8 verbose mapToRegistry no registry URL found in name for scope @girder
+9 silly mapToRegistry using default registry
+10 silly mapToRegistry registry https://registry.npmjs.org/
+11 silly mapToRegistry data Result {
+11 silly mapToRegistry   raw: '@girder/app',
+11 silly mapToRegistry   scope: '@girder',
+11 silly mapToRegistry   escapedName: '@girder%2fapp',
+11 silly mapToRegistry   name: '@girder/app',
+11 silly mapToRegistry   rawSpec: '',
+11 silly mapToRegistry   spec: 'latest',
+11 silly mapToRegistry   type: 'tag' }
+12 silly mapToRegistry uri https://registry.npmjs.org/@girder%2fapp
+13 verbose request uri https://registry.npmjs.org/@girder%2fapp
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 11:43:57
+16 verbose request id 91ef3a5f7572583a
+17 http request GET https://registry.npmjs.org/@girder%2fapp
+18 http 404 https://registry.npmjs.org/@girder%2fapp
+19 verbose headers { 'content-type': 'application/json',
+19 verbose headers   'cache-control': 'max-age=0',
+19 verbose headers   'content-length': '21',
+19 verbose headers   'accept-ranges': 'bytes',
+19 verbose headers   date: 'Fri, 27 Apr 2018 09:47:14 GMT',
+19 verbose headers   via: '1.1 varnish',
+19 verbose headers   age: '0',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'x-served-by': 'cache-cdg8721-CDG',
+19 verbose headers   'x-cache': 'MISS',
+19 verbose headers   'x-cache-hits': '0',
+19 verbose headers   'x-timer': 'S1524822434.937343,VS0,VE802' }
+20 silly get cb [ 404,
+20 silly get   { 'content-type': 'application/json',
+20 silly get     'cache-control': 'max-age=0',
+20 silly get     'content-length': '21',
+20 silly get     'accept-ranges': 'bytes',
+20 silly get     date: 'Fri, 27 Apr 2018 09:47:14 GMT',
+20 silly get     via: '1.1 varnish',
+20 silly get     age: '0',
+20 silly get     connection: 'keep-alive',
+20 silly get     'x-served-by': 'cache-cdg8721-CDG',
+20 silly get     'x-cache': 'MISS',
+20 silly get     'x-cache-hits': '0',
+20 silly get     'x-timer': 'S1524822434.937343,VS0,VE802' } ]
+21 silly fetchPackageMetaData Error: Not found : @girder/app
+21 silly fetchPackageMetaData     at makeError (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+21 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+21 silly fetchPackageMetaData     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+21 silly fetchPackageMetaData     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:187:22)
+21 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+21 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+21 silly fetchPackageMetaData     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+21 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+21 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+21 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:969:12)
+21 silly fetchPackageMetaData  error for @girder/app { Error: Not found : @girder/app
+21 silly fetchPackageMetaData     at makeError (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+21 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+21 silly fetchPackageMetaData     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+21 silly fetchPackageMetaData     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:187:22)
+21 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+21 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+21 silly fetchPackageMetaData     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+21 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+21 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+21 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:969:12) pkgid: '@girder/app', statusCode: 404, code: 'E404' }
+22 verbose stack Error: Not found : @girder/app
+22 verbose stack     at makeError (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+22 verbose stack     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+22 verbose stack     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+22 verbose stack     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:187:22)
+22 verbose stack     at emitTwo (events.js:106:13)
+22 verbose stack     at Request.emit (events.js:191:7)
+22 verbose stack     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+22 verbose stack     at emitOne (events.js:96:13)
+22 verbose stack     at Request.emit (events.js:188:7)
+22 verbose stack     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:969:12)
+23 verbose statusCode 404
+24 verbose pkgid @girder/app
+25 verbose cwd /home/creatis/.local/lib/python2.7/site-packages/girder/plugins/creatis
+26 error Linux 4.13.0-36-generic
+27 error argv "/usr/bin/node" "/usr/bin/npm" "bugs" "@girder/app"
+28 error node v6.14.1
+29 error npm  v3.10.10
+30 error code E404
+31 error 404 Not found : @girder/app
+32 error 404
+33 error 404 '@girder/app' is not in the npm registry.
+34 error 404 You should bug the author to publish it (or use the name yourself!)
+35 error 404 Note that you can also install from a
+36 error 404 tarball, folder, http url, or git url.
+37 verbose exit [ 1, true ]

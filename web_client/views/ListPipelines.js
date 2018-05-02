@@ -5,6 +5,7 @@ import { confirm } from 'girder/dialog';
 import { getCurrentUser } from 'girder/auth';
 import events from 'girder/events';
 import CarminClient from '../vendor/carmin/carmin-client';
+import * as constants from '../constants';
 
 // Import views
 import View from 'girder/views/View';
@@ -21,7 +22,7 @@ var ListPipelines = View.extend({
     this.user = getCurrentUser();
     this.file = settings.file.responseJSON;
     this.foldersCollection = [];
-    this.carmin = new CarminClient("http://newk.grid.creatis.insa-lyon.fr:4040/rest", "jnvp6d45h5un3dhb8v73jivhhb");
+    this.carmin = new CarminClient(constants.carminURL, "jnvp6d45h5un3dhb8v73jivhhb");
 
     // Get file data
     restRequest({
@@ -43,8 +44,7 @@ var ListPipelines = View.extend({
     });
 
     // Get pipelines of user
-    var Carmin = new CarminClient("http://newk.grid.creatis.insa-lyon.fr:4040/rest", "jnvp6d45h5un3dhb8v73jivhhb");
-    Carmin.listPipelines(function (data) {
+    this.carmin.listPipelines(function (data) {
       this.pipelines = data;
       this.render();
     }.bind(this));
@@ -129,7 +129,6 @@ var ListPipelines = View.extend({
       return;
 
       _.each(resp, function(e) {
-        console.log(e);
         e.path = path.concat("/"+e.name);
         e.indent = i;
         e.indentText = "&nbsp;".repeat((i - 1) * 3);
